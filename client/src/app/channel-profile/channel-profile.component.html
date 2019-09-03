@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Channel Profile</h1>
+<div mat-dialog-content style="height: 300px; display: flex; justify-content: center; flex-direction: column">
+  <mat-form-field>
+    Channel name:
+    <input matInput [(ngModel)]="channel.name">
+  </mat-form-field>
+  <mat-form-field>
+    Group name:
+    <input matInput [(ngModel)]="channel.groupName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Channel users</mat-label>
+    <mat-select [disabled]="this.disable"  multiple [formControl]="userForm" [(ngModel)]="selectedUsers" (focusout)="onUserOut()">
+      <mat-option *ngFor="let user of allUsers" [value]="user">{{user}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]>Cancel</button>
+  <button mat-button [mat-dialog-close]="channel">Save</button>
+</div>

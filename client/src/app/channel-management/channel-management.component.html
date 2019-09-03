@@ -1,0 +1,29 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let channel of channels"
+                       (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{channel.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{channel.groupName}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>No message available at this time.</p>
+    <mat-action-row style="justify-content: normal">
+      <mat-form-field>
+        Message:
+        <input matInput>
+      </mat-form-field>
+      <button mat-button>SUBMIT</button>
+      <span style="flex: 1 1 auto;" class="example-spacer"></span>
+      <button style="margin-top: 5px" mat-icon-button (click)="openProfile(channel)">
+        <mat-icon inline>settings</mat-icon>
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<div style="padding-top: 20px; padding-left: 24px">
+  <button mat-raised-button mat-button color="primary" (click)="channelDialog()">ADD CHANNEL</button>
+</div>

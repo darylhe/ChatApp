@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Group Name</h1>
+<div mat-dialog-content style="height: 200px; display: flex; justify-content: center; flex-direction: column">
+  <mat-form-field>
+    Group name:
+    <input id="username" matInput [(ngModel)]="name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]>Cancel</button>
+  <button mat-button [mat-dialog-close]="name">Add</button>
+</div>

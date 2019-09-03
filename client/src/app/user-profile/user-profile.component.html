@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>User Profile</h1>
+<div mat-dialog-content style="height: 200px; display: flex; justify-content: center; flex-direction: column; margin:0 auto">
+  <mat-form-field>
+    Username:
+    <input id="username" matInput [(ngModel)]="user.username">
+  </mat-form-field>
+  <mat-form-field>
+    Email:
+    <input id="email" matInput [(ngModel)]="user.email">
+  </mat-form-field>
+<!--  <br>-->
+  <mat-checkbox style="display: block" class="super-admin-check" color="primary" [(ngModel)]="user.superAdmin">
+    Super admin
+  </mat-checkbox>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]>Cancel</button>
+  <button mat-button [mat-dialog-close]="user">Save</button>
+</div>

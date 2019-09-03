@@ -1,0 +1,31 @@
+<h1 >Group Profile</h1>
+<div mat-dialog-content style="height: 300px; display: flex; justify-content: center; flex-direction: column">
+  <mat-form-field>
+    Group name:
+    <input matInput [(ngModel)]="group.name">
+  </mat-form-field>
+  <mat-form-field>
+    Group admin:
+
+    <mat-select multiple [formControl]="adminForm" [(ngModel)]="selectedAdmins" (focusout)="onAdminOut()">
+      <mat-option *ngFor="let user of allUsers" [value]="user">{{user}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    Group assis:
+    <mat-select multiple [formControl]="assisForm" [(ngModel)]="selectedAssis" (focusout)="onAssisOut()">
+      <mat-option *ngFor="let user of allUsers" [value]="user">{{user}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    Group user:
+
+    <mat-select multiple [formControl]="userForm" [(ngModel)]="selectedUser" (focusout)="onUserOut()">
+      <mat-option *ngFor="let user of allUsers" [value]="user">{{user}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]>Cancel</button>
+  <button mat-button [mat-dialog-close]="group">Save</button>
+</div>

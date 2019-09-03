@@ -1,0 +1,39 @@
+<table mat-table [dataSource]="users" class="table-user">
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> Username</th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="superAdmin">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="operations">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element">
+      <button *ngIf="this.userService.user.superAdmin" mat-button (click)="userDialog(element)">
+        Edit
+      </button>
+      <button *ngIf="this.userService.user.superAdmin" mat-button (click)="removeUser(element)">
+        Delete
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<div style="padding-top: 20px; padding-left: 24px">
+  <button *ngIf="this.userService.user.superAdmin" mat-raised-button mat-button color="primary" (click)="userDialog()">
+    Add user
+  </button>
+</div>

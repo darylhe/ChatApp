@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><a routerLink="admin" routerLinkActive="active">{{title}}</a></span>
+    <button *ngIf="!this.userService.user?.enabled" mat-button>Login</button>
+    <span class="example-spacer"></span>
+    <button *ngIf="this.userService.user?.enabled" (click)="logout()" mat-button>Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

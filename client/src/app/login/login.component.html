@@ -1,0 +1,11 @@
+<div class="form-div">
+  <form (ngSubmit)="onLogin()" #loginComponent="ngForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <label>
+        Username:<input [(ngModel)]="user.username" name="username">
+      </label>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary">Login</button>
+  </form>
+</div>
